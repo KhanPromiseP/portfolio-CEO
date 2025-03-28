@@ -1,6 +1,8 @@
 # PortfolioPro - Professional Portfolio Template
 
-![PortfolioPro Screenshot](assets/images/screenshot.jpg)
+![image](https://github.com/user-attachments/assets/dcb9c678-aedc-4b98-baee-dfa65195e7af)
+
+
 
 PortfolioPro is a premium, responsive portfolio template designed for creative professionals, developers, and designers. It features a modern design with light/dark theme support, smooth animations, and all the sections you need to showcase your work effectively.
 
