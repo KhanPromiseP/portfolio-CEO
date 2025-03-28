@@ -8,6 +8,16 @@
     <meta name="description" content="Premium portfolio template for creative professionals">
     <meta name="keywords" content="portfolio, web developer, designer, resume">
 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('YOUR_USER_ID');
+    </script>
+
+
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo/logo.svg">
 
@@ -450,8 +460,14 @@
                                 <!-- FormSubmit Configuration -->
                                 <input type="hidden" name="_captcha" value="false">
                                 <input type="hidden" name="_next" value="https://portfolio-pro-template.vercel.app/thank-you.html">
+                                <input type="hidden" name="_autoresponse" value="Thanks for your message! We'll respond shortly.">
                                 <input type="hidden" name="_template" value="table">
                                 <input type="hidden" name="_subject" value="New message from your portfolio">
+                                <input type="hidden" name="_honey" value="" style="display:none">
+                                <input type="hidden" name="_domain" value="https://portfolio-pro-template.vercel.app">
+
+                                <input type="hidden" name="_blacklist" value="spam, bot">
+                                <input type="checkbox" name="_confirm" style="display:none" tabindex="-1" autocomplete="off">
 
 
                                 <div class="row">

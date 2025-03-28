@@ -32,6 +32,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+
+    // Register service worker with periodic sync
+    async function registerServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            const registration = await navigator.serviceWorker.register('/sw.js');
+
+            if ('periodicSync' in registration) {
+                try {
+                    await registration.periodicSync.register('cleanup-submissions', {
+                        minInterval: 86400000 // 24 hours
+                    });
+                } catch (error) {
+                    console.log('Periodic sync could not be registered:', error);
+                }
+            }
+        }
+    }
+
+    // Call this on page load
+    registerServiceWorker().catch(console.error);
+
     // Back to top button
     const backToTopButton = document.querySelector('.back-to-top');
 
@@ -42,6 +63,12 @@ document.addEventListener('DOMContentLoaded', function() {
             backToTopButton.classList.remove('active');
         }
     });
+
+    if (!('serviceWorker' in navigator)) {
+        setInterval(() => {
+            if (navigator.onLine) retryFailedSubmissions();
+        }, 30000); // Fallback polling
+    }
 
     backToTopButton.addEventListener('click', function(e) {
         e.preventDefault();
