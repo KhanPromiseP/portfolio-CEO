@@ -1,0 +1,46 @@
+/* Dark Theme Overrides */
+[data-bs-theme="dark"] {
+    --primary-color: #4da6ff;
+    --secondary-color: #1a2a3a;
+    --accent-color: #ff6b6b;
+    --light-color: #2d3748;
+    --dark-color: #1a202c;
+    --text-color: #f7fafc;
+    --bg-color: #1a202c;
+    --card-bg: #2d3748;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Apply dark theme to specific elements */
+[data-bs-theme="dark"] body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+[data-bs-theme="dark"] .bg-light {
+    background-color: var(--dark-color) !important;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: var(--card-bg);
+    border-color: #3a4556;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: var(--light-color);
+    border-color: #3a4556;
+    color: var(--text-color);
+}
+
+[data-bs-theme="dark"] .progress {
+    background-color: #3a4556;
+}
+
+[data-bs-theme="dark"] .section-title {
+    color: var(--text-color);
+}
+
+/* Make sure navbar stays dark in dark mode */
+[data-bs-theme="dark"] .navbar {
+    background-color: var(--dark-color) !important;
+}
