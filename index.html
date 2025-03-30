@@ -9,7 +9,10 @@
     <meta name="keywords" content="portfolio, web developer, designer, resume">
 
 
-    <!-- bot -->
+
+
+
+
 
     <!-- In your <head> tag -->
     <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
@@ -27,18 +30,12 @@
         }
     </style>
 
-    <!-- Put this on your page BEFORE the script below -->
-    <div id="webchat" style="width: 500px; height: 500px;"></div>
 
-    <!-- In your <body> tag -->
-    <script>
-        window.botpress.on("webchat:ready", () => {
-            window.botpress.open();
-        });
-        window.botpress.init({
-            "selector": "#webchat"
-        });
-    </script>
+
+
+
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -79,6 +76,44 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar">
+
+
+
+
+    <!-- Put this on your page BEFORE the script below -->
+    <div id="webchat" style="width: 500px; height: 500px;"></div>
+
+    <!-- In your <body> tag -->
+    <script>
+        window.botpress.on("webchat:ready", () => {
+            window.botpress.open();
+        });
+        window.botpress.init({
+            "botId": "6bf592d3-507e-4c06-8b81-ad2e0a7e80da",
+            "configuration": {
+                "website": {},
+                "email": {},
+                "phone": {},
+                "termsOfService": {},
+                "privacyPolicy": {},
+                "color": "#3B82F6",
+                "variant": "solid",
+                "themeMode": "light",
+                "fontFamily": "inter",
+                "radius": 1
+            },
+            "clientId": "7f23327f-711d-4e74-b76c-a0fdf2816adb",
+            "selector": "#webchat"
+        });
+    </script>
+
+
+
+
+
+
+
+
     <!-- Back to Top Button -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
