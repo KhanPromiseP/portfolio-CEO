@@ -514,6 +514,7 @@
 
                             <div id="contact-form" class="alert d-none mt-3"></div>
                             <form id="contact-form">
+                                <!-- No action/method -->
                                 <input type="text" name="name" placeholder="Your Name" required>
                                 <input type="email" name="email" placeholder="Your Email" required>
                                 <textarea name="message" placeholder="Message" required></textarea>
@@ -529,7 +530,7 @@
 
                 <script>
                     document.getElementById("contact-form").addEventListener("submit", async (e) => {
-                        e.preventDefault();
+                        e.preventDefault(); // Stops page reload & URL appending
 
                         const formData = new FormData(e.target);
 
@@ -543,15 +544,14 @@
                             });
 
                             if (response.ok) {
-                                alert("✅ Your message has been sent successfully!");
-                                e.target.reset(); // Optionally clear the form
+                                alert("Message sent successfully!");
+                                e.target.reset(); // Clear the form
                             } else {
-                                const errorData = await response.json();
-                                alert("❌ Failed to send message! " + (errorData.message || "Please try again."));
+                                alert("Failed to send. Please try again.");
                             }
                         } catch (error) {
-                            alert("🚫 An error occurred while sending the message. Please check your connection and try again.");
-                            console.error("Email send error:", error);
+                            alert("Network error. Check console.");
+                            console.error(error);
                         }
                     });
                 </script>
