@@ -511,6 +511,8 @@
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4">
                             <h3 class="mb-4 text-center">Send Me a Message</h3>
+
+                            <div id="contact-form" class="alert d-none mt-3"></div>
                             <form id="contact-form">
                                 <input type="text" name="name" placeholder="Your Name" required>
                                 <input type="email" name="email" placeholder="Your Email" required>
@@ -518,7 +520,7 @@
                                 <button type="submit">Send</button>
                             </form>
 
-                            <div id="formAlert" class="alert d-none mt-3"></div>
+
                         </div>
                     </div>
                 </div>
@@ -528,17 +530,29 @@
                 <script>
                     document.getElementById("contact-form").addEventListener("submit", async (e) => {
                         e.preventDefault();
+
                         const formData = new FormData(e.target);
 
-                        const response = await fetch('/api/send-email', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(Object.fromEntries(formData)),
-                        });
+                        try {
+                            const response = await fetch('/api/send-email', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(Object.fromEntries(formData)),
+                            });
 
-                        if (response.ok) alert("Message sent!");
+                            if (response.ok) {
+                                alert("✅ Your message has been sent successfully!");
+                                e.target.reset(); // Optionally clear the form
+                            } else {
+                                const errorData = await response.json();
+                                alert("❌ Failed to send message. " + (errorData.message || "Please try again."));
+                            }
+                        } catch (error) {
+                            alert("🚫 An error occurred while sending the message. Please check your connection and try again.");
+                            console.error("Email send error:", error);
+                        }
                     });
                 </script>
 
