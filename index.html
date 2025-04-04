@@ -15,7 +15,7 @@
 
 
     <!-- In your <head> tag -->
-    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+    <!-- <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
     <style>
         #webchat .bpWebchat {
             position: unset;
@@ -28,7 +28,7 @@
         #webchat .bpFab {
             display: none;
         }
-    </style>
+    </style> -->
 
 
 
@@ -83,6 +83,19 @@
     <!-- chatbot -->
     <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2025/03/30/17/20250330175616-S6GUY8N5.js"></script>
+
+    <!-- <script src="http://localhost:3000/assets/modules/channel-web/inject.js"></script>
+    <script>
+        window.botpressWebChat.init({
+            host: "http://localhost:3000",
+            botId: "probot",
+            showPoweredBy: false
+        });
+    </script> -->
+
+
+
+
 
 
 
@@ -491,57 +504,47 @@
                         <a href="#" class="social-icon d-inline-flex"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
+
+
+
                 <div class="col-lg-7" data-aos="fade-left">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4">
-                            <h3 class="mb-4">Send Me a Message</h3>
-                            <form id="contactForm" action="https://formsubmit.co/khanpromise30@mail.com" method="POST">
-
-                                <!-- FormSubmit Configuration -->
-                                <input type="hidden" name="_captcha" value="false">
-                                <input type="hidden" name="_next" value="https://portfolio-pro-template.vercel.app/thank-you.html">
-                                <input type="hidden" name="_autoresponse" value="Thanks for your message! We'll respond shortly.">
-                                <input type="hidden" name="_template" value="table">
-                                <input type="hidden" name="_subject" value="New message from your portfolio">
-                                <input type="hidden" name="_honey" value="" style="display:none">
-                                <input type="hidden" name="_domain" value="https://portfolio-pro-template.vercel.app">
-
-                                <input type="hidden" name="_blacklist" value="spam, bot">
-                                <input type="checkbox" name="_confirm" style="display:none" tabindex="-1" autocomplete="off">
-
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label">Your Name *</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
-                                        <div class="invalid-feedback">Please enter your name.</div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Your Email *</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com" required>
-                                        <div class="invalid-feedback">Please enter a valid email.</div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Subject</label>
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Regarding your portfolio">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Your Message *</label>
-                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Hello, I'd like to hire you..." required></textarea>
-                                    <div class="invalid-feedback">Message must be at least 10 characters.</div>
-                                </div>
-                                <div class="text-end">
-                                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                                        <span class="submit-text">Send Message</span>
-                                        <span class="spinner-border spinner-border-sm d-none" role="status"></span>
-                                    </button>
-                                </div>
+                            <h3 class="mb-4 text-center">Send Me a Message</h3>
+                            <form id="contact-form">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                                <input type="email" name="email" placeholder="Your Email" required>
+                                <textarea name="message" placeholder="Message" required></textarea>
+                                <button type="submit">Send</button>
                             </form>
+
                             <div id="formAlert" class="alert d-none mt-3"></div>
                         </div>
                     </div>
                 </div>
+
+
+
+                <script>
+                    document.getElementById("contact-form").addEventListener("submit", async (e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.target);
+
+                        const response = await fetch('/api/send-email', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(Object.fromEntries(formData)),
+                        });
+
+                        if (response.ok) alert("Message sent!");
+                    });
+                </script>
+
+
+
+
             </div>
         </div>
     </section>
