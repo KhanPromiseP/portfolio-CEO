@@ -547,7 +547,7 @@
                                 e.target.reset(); // Optionally clear the form
                             } else {
                                 const errorData = await response.json();
-                                alert("❌ Failed to send message. " + (errorData.message || "Please try again."));
+                                alert("❌ Failed to send message! " + (errorData.message || "Please try again."));
                             }
                         } catch (error) {
                             alert("🚫 An error occurred while sending the message. Please check your connection and try again.");
