@@ -15,8 +15,8 @@
 
 
     <!-- In your <head> tag -->
-    <!-- <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-    <style>
+    <!-- <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script> -->
+    <!-- <style>
         #webchat .bpWebchat {
             position: unset;
             width: 100%;
@@ -38,10 +38,35 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- chatbot -->
+    <!-- <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/03/30/17/20250330175616-S6GUY8N5.js"></script> -->
+
+
+
+
+
+    <!-- 
+    <script src="http://localhost:3003/assets/modules/channel-web/inject.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            window.botpressWebChat.init({
+                host: "http://localhost:3003",
+                botId: "probot",
+                showPoweredBy: false,
+                // Optional: custom chatId if needed
+                // chatId: "my-chat"
+            });
+        });
+    </script> -->
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         emailjs.init('YOUR_USER_ID');
-    </script>
+    </script> -->
 
 
 
@@ -63,7 +88,7 @@
     <link rel="stylesheet" href="assets/css/animations.css">
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -72,26 +97,11 @@
         }
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+    </script> -->
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar">
 
-
-
-
-    <!-- chatbot -->
-    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/03/30/17/20250330175616-S6GUY8N5.js"></script>
-
-    <!-- <script src="http://localhost:3000/assets/modules/channel-web/inject.js"></script>
-    <script>
-        window.botpressWebChat.init({
-            host: "http://localhost:3000",
-            botId: "probot",
-            showPoweredBy: false
-        });
-    </script> -->
 
 
 
@@ -512,51 +522,53 @@
                         <div class="card-body p-4">
                             <h3 class="mb-4 text-center">Send Me a Message</h3>
 
-                            <div id="contact-form" class="alert d-none mt-3"></div>
-                            <form id="contact-form">
-                                <!-- No action/method -->
-                                <input type="text" name="name" placeholder="Your Name" required>
+                            <form class="contact-form" action="https://formsubmit.co/khanpromise30@gmail.com" method="POST" id="contactForm">
+                                <h2>Contact Me</h2>
+
+                                <!-- Anti-spam -->
+                                <input type="text" name="_honey" style="display:none">
+
+                                <!-- No captcha -->
+                                <input type="hidden" name="_captcha" value="false">
+
+                                <!-- Redirect after form submit -->
+                                <input type="hidden" name="_next" value="http://127.0.0.1:5501/thank-you.html?name={name}">
+
+                                <!-- Email subject -->
+                                <input type="hidden" name="_subject" value="Message from PortfolioPro.com">
+
+                                <!-- Use plain template for message formatting (no extra metadata) -->
+                                <input type="hidden" name="_template" value="plain">
+
+                                <!-- Make reply-to work (use email provided by user) -->
+                                <input type="hidden" name="_replyto" value="email">
+
+                                <!-- Form fields -->
+                                <input type="text" name="name" placeholder="Your Name" required id="client-name">
                                 <input type="email" name="email" placeholder="Your Email" required>
-                                <textarea name="message" placeholder="Message" required></textarea>
-                                <button type="submit">Send</button>
+                                <textarea name="message" placeholder="Type your message here..." rows="6" required></textarea>
+
+                                <button type="submit">Send Message</button>
                             </form>
+
+
+                            <script>
+                                document.getElementById('contactForm').addEventListener('submit', function(event) {
+                                    var clientName = document.getElementById('client-name').value;
+                                    var nextURL = document.querySelector('input[name="_next"]').value;
+
+                                    // Replace {name} with the actual client name
+                                    nextURL = nextURL.replace('{name}', encodeURIComponent(clientName));
+
+                                    // Update the _next field with the dynamic URL
+                                    document.querySelector('input[name="_next"]').value = nextURL;
+                                });
+                            </script>
 
 
                         </div>
                     </div>
                 </div>
-
-
-
-                <script>
-                    document.getElementById("contact-form").addEventListener("submit", async (e) => {
-                        e.preventDefault(); // Stops page reload & URL appending
-
-                        const formData = new FormData(e.target);
-
-                        try {
-                            const response = await fetch('/api/send-email', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(Object.fromEntries(formData)),
-                            });
-
-                            if (response.ok) {
-                                alert("Message sent successfully!");
-                                e.target.reset(); // Clear the form
-                            } else {
-                                alert("Failed to send. Please try again.");
-                            }
-                        } catch (error) {
-                            alert("Network error. Check console.");
-                            console.error(error);
-                        }
-                    });
-                </script>
-
-
 
 
             </div>
