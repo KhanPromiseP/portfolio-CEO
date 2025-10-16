@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Promise GRACE Graphics</title>
+    <title>Booking Confirmed | Gastronomique Restaurant</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
@@ -100,6 +100,80 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Booking details styling */
+        .booking-details {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .booking-details h3 {
+            color: #28a745;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .special-requests {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .special-requests .detail-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .special-requests .detail-value {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .no-requests {
+            color: #888;
+            font-style: italic;
+        }
+
+        .confirmation-number {
+            background-color: #e9f7ef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            border-left: 4px solid #28a745;
+        }
+
+        .confirmation-number span {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 
@@ -115,20 +189,62 @@
             <div class="checkmark">
                 <i class="fas fa-check"></i>
             </div>
-            <h1>Thank You, <span id="client-name"></span>!</h1>
-            <p class="lead">Your message has been sent successfully. I'll get back to you as soon as possible.</p>
-            <p class="lead">In the meantime, feel free to connect with us:</p>
+            <h1>Thank you, <span id="client-name"></span>!</h1>
+            <p class="lead">Your request has been successfully confirmed. We look forward to serving you!</p>
+            
+            <!-- Booking Details -->
+            <div class="booking-details">
+                <h3>Your Request Details</h3>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Date:</div>
+                    <div class="detail-value" id="booking-date"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Time:</div>
+                    <div class="detail-value" id="booking-time"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Guests:</div>
+                    <div class="detail-value" id="booking-guests"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Contact Email:</div>
+                    <div class="detail-value" id="booking-email"></div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Contact Phone:</div>
+                    <div class="detail-value" id="booking-phone"></div>
+                </div>
+                
+                <div class="special-requests">
+                    <div class="detail-label">Special Requests:</div>
+                    <div class="detail-value" id="booking-requests">
+                        <span class="no-requests">No special requests</span>
+                    </div>
+                </div>
+                
+            
+            </div>
+            
+            <p class="lead">Your request is under review, we will get to you via <span id="email-display"></span>.</p>
+            <p class="lead">Thank You.</p>
+            
             <div class="social-links">
-                <a href="https://facebook.com/promisegracegraphics" target="_blank" class="text-dark">
+                <a href="#" target="_blank" class="text-dark">
                     <i class="fab fa-facebook-square"></i> Facebook
                 </a>
-                <a href="https://twitter.com/your_handle" target="_blank" class="text-dark">
+                <a href="#" target="_blank" class="text-dark">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="#" target="_blank" class="text-dark">
                     <i class="fab fa-twitter"></i> Twitter
                 </a>
-                <a href="https://t.me/your_username" target="_blank" class="text-dark">
-                    <i class="fab fa-telegram-plane"></i> Telegram
-                </a>
-                <a href="https://yourwebsite.com" target="_blank" class="text-dark">
+                <a href="https://randy.netlify.app" target="_blank" class="text-dark">
                     <i class="fas fa-globe"></i> Website
                 </a>
             </div>
@@ -138,18 +254,86 @@
 
     <!-- Footer (same as your main site) -->
     <footer class="py-4">
-        <p>&copy; 2025 Promise GRACE Graphics | All Rights Reserved. <a href="#">Privacy Policy</a></p>
+        <p>&copy; 2025 Randy Tar | All Rights Reserved. <a href="privacy.html">Privacy Policy</a></p>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Get the client name from the URL parameters
+        // Get the URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const clientName = urlParams.get('name');
-        if (clientName) {
-            document.getElementById('client-name').textContent = clientName;
+        
+        // Get all booking details from URL parameters
+        const clientName = urlParams.get('name') || 'Guest';
+        const email = urlParams.get('email') || '';
+        const phone = urlParams.get('phone') || '';
+        const guests = urlParams.get('guests') || '';
+        const date = urlParams.get('date') || '';
+        const time = urlParams.get('time') || '';
+        const specialRequests = urlParams.get('specialRequests') || '';
+        
+        // Format date for display
+        function formatDate(dateString) {
+            if (!dateString) return 'Not specified';
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', options);
         }
+        
+        // Format time for display
+        function formatTime(timeString) {
+            if (!timeString) return 'Not specified';
+            
+            const [hours, minutes] = timeString.split(':');
+            const hour = parseInt(hours);
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const displayHour = hour % 12 || 12;
+            
+            return `${displayHour}:${minutes} ${ampm}`;
+        }
+        
+        // Format guests for display
+        function formatGuests(guestsString) {
+            if (!guestsString) return 'Not specified';
+            
+            if (guestsString === '1') {
+                return '1 Person';
+            } else if (guestsString === '5+') {
+                return '5+ People';
+            } else {
+                return `${guestsString} People`;
+            }
+        }
+        
+        // Generate a random confirmation number
+        function generateConfirmationNumber() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+        
+        // Display the booking details
+        document.getElementById('client-name').textContent = clientName;
+        document.getElementById('booking-date').textContent = formatDate(date);
+        document.getElementById('booking-time').textContent = formatTime(time);
+        document.getElementById('booking-guests').textContent = formatGuests(guests);
+        document.getElementById('booking-email').textContent = email || 'Not provided';
+        document.getElementById('booking-phone').textContent = phone || 'Not provided';
+        document.getElementById('email-display').textContent = email || 'your email';
+        
+        // Handle special requests
+        const requestsElement = document.getElementById('booking-requests');
+        if (specialRequests) {
+            requestsElement.innerHTML = specialRequests;
+            requestsElement.classList.remove('no-requests');
+        }
+        
+        // Set confirmation number
+        document.getElementById('confirmation-number').textContent = generateConfirmationNumber();
     </script>
 </body>
 

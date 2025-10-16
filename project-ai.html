@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automatic Text Writer | Randy Tar</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 60px;
+            margin-top: 76px;
+        }
+        .project-content {
+            padding: 60px 0;
+        }
+        .tech-badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+            display: inline-block;
+        }
+        .project-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .action-buttons {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .ai-feature {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+     <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/logo/logo.webp" alt="Randy Tar" height="30" class="d-inline-block align-top me-2 rounded">
+                Randy Tar
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">AI Automatic Text Writer</h1>
+                    <p class="lead mb-4">Professional AI-powered content generator with Google Drive integration</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">OpenAI API</span>
+                        <span class="tech-badge">Google Drive API</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">Project Overview</h3>
+                            <p class="lead">Developed an intelligent AI writing assistant that automatically generates professional content and seamlessly saves it to Google Drive. Perfect for content creators, marketers, and businesses.</p>
+                            
+                            <h4 class="mt-5 mb-3">Key Features</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="ai-feature">
+                                        <i class="fas fa-robot feature-icon"></i>
+                                        <h5>AI Content Generation</h5>
+                                        <p class="text-muted">Advanced AI models for quality writing</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="ai-feature">
+                                        <i class="fab fa-google-drive feature-icon"></i>
+                                        <h5>Drive Integration</h5>
+                                        <p class="text-muted">Automatic saving to Google Drive</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="ai-feature">
+                                        <i class="fas fa-magic feature-icon"></i>
+                                        <h5>Multiple Formats</h5>
+                                        <p class="text-muted">Blogs, emails, reports, and more</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="ai-feature">
+                                        <i class="fas fa-bolt feature-icon"></i>
+                                        <h5>Fast Processing</h5>
+                                        <p class="text-muted">Quick content generation and saving</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="mt-5 mb-3">Technical Implementation</h4>
+                            <div class="bg-light p-4 rounded">
+                                <pre><code>import openai
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
+# AI Content Generation
+def generate_content(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content
+
+# Google Drive Integration
+def save_to_drive(content, filename):
+    credentials = service_account.Credentials.from_service_account_file(
+        'credentials.json',
+        scopes=['https://www.googleapis.com/auth/drive']
+    )
+    service = build('drive', 'v3', credentials=credentials)
+    
+    file_metadata = {'name': filename}
+    media = MediaFileUpload(content, mimetype='text/plain')
+    file = service.files().create(body=file_metadata, media_body=media).execute()
+    return file.get('id')</code></pre>
+                            </div>
+
+                            <h4 class="mt-5 mb-3">Project Impact</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <h2 class="text-primary">10x</h2>
+                                        <p class="mb-0">Faster Content Creation</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <h2 class="text-primary">500+</h2>
+                                        <p class="mb-0">Documents Generated</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <h2 class="text-primary">95%</h2>
+                                        <p class="mb-0">Time Saved</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Project Info Card -->
+                    <div class="project-card" data-aos="fade-left">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">Project Details</h5>
+                            <div class="mb-3">
+                                <strong><i class="fas fa-calendar me-2"></i>Duration:</strong>
+                                <p class="mb-0">3 weeks</p>
+                            </div>
+                            <div class="mb-3">
+                                <strong><i class="fas fa-user me-2"></i>Client:</strong>
+                                <p class="mb-0">ContentPro Agency</p>
+                            </div>
+                            <div class="mb-3">
+                                <strong><i class="fas fa-tags me-2"></i>Category:</strong>
+                                <p class="mb-0">AI & Automation</p>
+                            </div>
+                            <div class="mb-3">
+                                <strong><i class="fas fa-brain me-2"></i>AI Model:</strong>
+                                <p class="mb-0">OpenAI GPT</p>
+                            </div>
+                            <div class="mb-3">
+                                <strong><i class="fas fa-cloud me-2"></i>Integration:</strong>
+                                <p class="mb-0">Google Drive API</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Card -->
+                    <div class="project-card" data-aos="fade-left" data-aos-delay="100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">Project Gallery</h5>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="AI Interface" class="project-image rounded">
+                                </div>
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Content Generation" class="project-image rounded">
+                                </div>
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Google Drive Integration" class="project-image rounded">
+                                </div>
+                                <div class="col-6">
+                                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Code Implementation" class="project-image rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features Card -->
+                    <div class="project-card" data-aos="fade-left" data-aos-delay="200">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">Core Features</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> AI-powered content generation</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Google Drive auto-save</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Multiple content types</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Customizable templates</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Real-time editing</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Export options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="action-buttons text-center">
+                        <a href="../index.html#contact" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-envelope me-2"></i>Contact About Project
+                        </a>
+                        <!-- replace the '#' with your github project link -->
+                        <a href="#" class="btn btn-outline-primary btn-lg me-3" target="_blank">
+                            <i class="fab fa-github me-2"></i>View Code
+                        </a>
+                        <a href="../index.html#portfolio" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>
