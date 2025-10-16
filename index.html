@@ -45,20 +45,12 @@
 
 
 
+<!-- <script
+  data-embed-id="${embed.uuid}"
+  data-base-api-url="${serverHost}/api/embed"
+  src="${scriptHost}/embed/anythingllm-chat-widget.min.js">
+</script> -->
 
-    <!-- 
-    <script src="http://localhost:3003/assets/modules/channel-web/inject.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            window.botpressWebChat.init({
-                host: "http://localhost:3003",
-                botId: "probot",
-                showPoweredBy: false,
-                // Optional: custom chatId if needed
-                // chatId: "my-chat"
-            });
-        });
-    </script> -->
 
 
 
@@ -614,6 +606,39 @@
             once: true
         });
     </script>
+
+    
+<script
+  data-embed-id="a455e475-2844-45b9-b59b-a12c208bbe55"
+  data-base-api-url="http://localhost:3001/api/embed"
+  src="http://localhost:3000/embed/anythingllm-chat-widget.min.js"
+
+  data-prompt="You are GraceBot, a friendly and helpful assistant."
+  data-model="gpt-4"
+  data-temperature="0.6"
+
+  data-language="en"
+  data-chat-icon="chatBubble" 
+  data-button-color="#4A90E2" 
+  data-user-bg-color="#D1F2EB" 
+  data-assistant-bg-color="#F9E79F" 
+  data-brand-image-url="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" 
+  data-greeting="Hi there! Need help? I'm here for you."
+  data-position="bottom-right" 
+  data-assistant-name="GraceBot"
+  data-assistant-icon="💡"
+  data-text-size="15"
+  data-username="guest_user_001"
+  data-default-messages="What can you do?,Need help with this page,Give me a tip"
+  data-send-message-text="Ask me anything..."
+  data-reset-chat-text="Start Over"
+  data-open-on-load="on"
+  data-show-thoughts="true"
+  data-support-email="support@yourdomain.com"
+>
+
+</script>
+
 </body>
 
 </html>
